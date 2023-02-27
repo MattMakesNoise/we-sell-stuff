@@ -1,44 +1,60 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import './App.scss';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+function App() { 
 
-  useEffect(() => {
-      fetch('https://fakestoreapi.com/products')
-          .then(res=>res.json())
-          .then(json=>console.log(json))
-  }, []);
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        <p>This is Matt here</p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> 
-    </div>
-  )
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then((res) => {
+                if(!res.ok) {
+                    throw new Error(
+                        `HTTP error! status: ${res.status}`
+                    );
+                }
+                return res.json();
+            })
+            .then((actualData) => {
+                setData(actualData);
+                setError(null);
+                console.log(actualData);
+            })
+            .catch((error) => {
+                setError(error.message);
+                setData(null);
+                console.log(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+
+    return (
+        <div className="App">
+            <Header />
+            <div className="App-body">
+                <h1>API Posts</h1>
+                {loading && <p>Wait up guys!!!...</p>}
+                {error && (
+                    <p>{`There's a problem fetching the data innit! ${error}`}</p>
+                )}
+                <ul>
+                    {data && data.map(({id, title}) => (
+                        <li key={id}>
+                            <h3>{title}</h3>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
-export default App
+export default App;
