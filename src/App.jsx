@@ -38,7 +38,7 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <div className="App-body">
+            <main className="App-body">
                 <h1>API Posts</h1>
                 {loading && <p>Wait up guys!!!...</p>}
                 {error && (
@@ -51,7 +51,7 @@ function App() {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </main>
             <Footer />
         </div>
     );

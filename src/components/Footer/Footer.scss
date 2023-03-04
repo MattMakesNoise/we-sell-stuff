@@ -1,17 +1,24 @@
-@import "../Helpers/Shared";
+@import "src/components/Helpers/shared.scss";
 
-header {
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: yellow;
     height: 100px;
 
-    .header-inner {
+    .footer-inner {
         max-width: $lg;
         padding: 1rem;
         border: 1px solid red;
+
+        h3 {
+            color: red;
+        }
     }
 }
 
-h1 {color: red;}
