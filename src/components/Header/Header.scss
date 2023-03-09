@@ -4,14 +4,22 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
-    height: 100px;
+    background-color: $yellow;
+    height: 150px;
 
     .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         max-width: $lg;
-        padding: 1rem;
-        border: 1px solid red;
+        border: 1px solid $red;
+        
+        .logo-wrapper {
+
+            img {
+                max-height: 100px;
+                width: auto;
+            }
+        }
     }
 }
-
-h1 {color: red;}
