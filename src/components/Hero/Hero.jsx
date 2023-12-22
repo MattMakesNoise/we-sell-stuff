@@ -1,29 +1,27 @@
 import React from "react";
-import useFetch from "../Fetch/useFetch.js";
 import './Hero.scss';
-import LoadingSpinner from "../Loading/LoadingSpinner.jsx";
 
-const Hero = () => {
-    const {loading, error, data} = useFetch('https://fakestoreapi.com/products');
+const Hero = ({ data, loading, error }) => {
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    if(loading) return <LoadingSpinner />
-
-    if(error) console.log(error);
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
     return (
         <div className="hero-wrapper">
             <div className="hero-inner">
-                <ul>
-                    {data && data.map(({id, title}) => (
-                        <li key={id}>
-                            <h3>{title}</h3>
-                        </li>
-                    ))}
-                </ul>
+                {data.map(item => (                    
+                    <div className="hero-item" key={item.id}>
+                        <img src={item.image} alt={item.title} />
+                        <h2>{item.title}</h2>
+                    </div>
+                ))}
             </div>
         </div>
-    )
+    );
 }
-
 
 export default Hero;
