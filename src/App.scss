@@ -1,3 +1,5 @@
+@import './components/Helpers/Shared.scss';
+
 //=============== CSS RESET ===============//
 *,
 *::before,
@@ -7,12 +9,29 @@
     box-sizing: border-box;
 }
 
+// =============== GLOBAL STYLES ========= //
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+button {
+    @include btn($primary);
+}
+
+a {
+    @include link;
 }
 
 .App {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+
+    .App-body {
+        @include container;
+        width: 100%;
+        max-width: 1024px;
+        margin: 2rem auto;
+        // border: 1px solid $secondary;
+    }
 }

@@ -1,28 +1,23 @@
 //=============== VARIABLES ===============//
-$yellow: #FFD64D;
-$red: #F52449;
+$primary: #FFD64D;
+$secondary: #F52449;
 
+$text-light: #252627;
+$text-dark: #1d1b1b;
+$bg-colour: #FCFCFC;
+$bg-colour-darker: #F7F7F7;
+
+$bord-rad: 7px;
+$shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+//=============== BREAKPOINTS ==========//
 $sm: 485px;
 $md: 768px;
-$lg: 1024px;
+$lg: 990px;
 $xl: 1200px;
 $xxl: 1440px;
 $xxxl: 1800px;
 
-
-//=============== MIXINS ===============//
-@mixin borders {
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-@mixin link {
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-//=============== BREAKPOINTS ==========//
 $breakpoints: (
         "sm": $sm,
         "md": $md,
@@ -66,4 +61,73 @@ $breakpoints: (
     @media (min-width: $bp) {
         @content;
     }
+}
+
+//=============== MIXINS ===============//
+// Container
+@mixin container {
+	background-color: var(--bg-colour);
+	margin-bottom: 2rem;
+	padding: 2rem;
+	border: 1px solid var(--bg-colour);
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+}
+
+// Buttons
+@mixin btn($colour) {
+	display: inline-block;
+	background-color: $colour;
+	color: var(--bg-colour);
+	padding: 1rem 2rem;
+	border: 1px solid $colour;
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all .1s ease-in-out;
+
+	&:hover {
+		background-color: var(--bg-colour);
+		color: $colour;
+	}
+
+	&:active {
+		transform: scale(0.99);
+	}
+}
+
+// Cards
+@mixin card {
+	background-color: var(--bg-colour);
+	border: 1px solid var(--bg-colour);
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	transition: transform .3s ease;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+}
+
+// Links
+@mixin link {
+	text-decoration: none;
+	color: var(--primary);
+    vertical-align: middle;
+    cursor: pointer;
+	transition: all .1s ease-in-out;
+
+	&:hover {
+		color: var(--text);
+	}
+}
+
+@mixin font {
+	font-family: 'Roboto', sans-serif;
 }

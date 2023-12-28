@@ -1,0 +1,19 @@
+@import "../Helpers/Shared";
+
+.product {
+    display: flex;
+    flex-direction: column;
+
+    .image-particulars-wrap {
+        display: flex;
+    
+    }
+    h1 {
+        order: 2;
+    }
+
+    img {
+        max-width: 300px;
+        order: 1;
+    }
+}

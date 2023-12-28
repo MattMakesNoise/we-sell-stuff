@@ -4,15 +4,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $yellow;
-    height: 150px;
+    background-color: $primary;
+    height: 100px;
 
     .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
         max-width: $lg;
-        border: 1px solid $red;
+        border: 1px solid $secondary;
         
         .logo-wrapper {
 
