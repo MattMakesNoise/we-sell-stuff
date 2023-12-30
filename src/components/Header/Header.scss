@@ -12,13 +12,43 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: $max-width;
+        width: $max-width;
+        padding: 0 1rem;
+        border: 1px solid red;
+
+        .burger-wrapper {
+            border: 1px solid red;
+        }
         
         .logo-wrapper {
 
             img {
                 max-height: 100px;
                 width: auto;
+            }
+        }
+
+        .basket-wrapper {
+            .fa-shopping-cart {
+                font-size: 2rem;
+                color: $secondary;
+            }
+
+            .basket-count-wrapper {
+                position: relative;
+                top: -2.5rem;
+                left: 1.5rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background-color: $secondary;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid white;
+                box-shadow: $shadow;
+                font-size: 1rem;
             }
         }
     }

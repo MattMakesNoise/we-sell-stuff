@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import BasketContext from '../Basket/BasketContext';
 import { useParams } from 'react-router-dom';
 import './Product.scss';
 import QuantitySelector from '../QuantitySelector/QuantitySelector';
 
 const Product = ({ data }) => {
+    const { basket, setBasket } = useContext(BasketContext);
     const { id } = useParams();
     const product = data.find(item => item.ID === id);
 
