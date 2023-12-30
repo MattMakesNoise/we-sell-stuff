@@ -8,16 +8,16 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $yellow;
+    background-color: $primary;
     height: 80px;
+    box-shadow: $shadow-top;
 
     .footer-inner {
-        max-width: $lg;
+        max-width: $max-width;
         padding: 1rem;
-        border: 1px solid $red;
-
+        
         h3 {
-            color: $red;
+            color: $secondary;
         }
     }
 }

@@ -6,13 +6,13 @@ header {
     align-items: center;
     background-color: $primary;
     height: 100px;
+    box-shadow: $shadow-bottom;
 
     .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: $lg;
-        border: 1px solid $secondary;
+        max-width: $max-width;
         
         .logo-wrapper {
 

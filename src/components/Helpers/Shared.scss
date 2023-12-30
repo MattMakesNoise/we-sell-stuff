@@ -9,6 +9,11 @@ $bg-colour-darker: #F7F7F7;
 
 $bord-rad: 7px;
 $shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+$shadow-bottom: 0 2px 4px 0 rgba(0,0,0,0.1);
+$shadow-top: 0 -2px 4px 0 rgba(0,0,0,0.1);
+
+
+$max-width: 1024px;
 
 //=============== BREAKPOINTS ==========//
 $sm: 485px;

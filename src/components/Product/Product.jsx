@@ -1,12 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './Product.scss';
+import QuantitySelector from '../QuantitySelector/QuantitySelector';
 
 const Product = ({ data }) => {
     const { id } = useParams();
     const product = data.find(item => item.ID === id);
-    // gets. the product.INFO and strips the returned string of quotation marks.
-    const info = product.INFO.slice(1, product.INFO.length - 1);
 
     return (
         <div className='product'>
@@ -17,13 +16,20 @@ const Product = ({ data }) => {
                 
                 <div className='product-particulars'>
                     <h1>{product.TITLE}</h1>
-                    <h2>{info}</h2>
-                    <p>Price: {product.PRICE}</p>
+                    <h2>{product.INFO}</h2>
+                    <p>Price: £{product.PRICE}</p>
+                    <p>Add a star rating and reviews</p>
+                    <p>Add some kind of colour selector that changes the image</p>
+                    <p>Add a size selector</p>
                     <p>Category: {product.CATEGORY}</p>
+                    <div className="add-to-basket-wrapper">
+                        <QuantitySelector onQuantityChange={(value) => console.log(value)} />
+                        <button className='add-to-basket'>Add to basket</button>
+                    </div>
                 </div>
             </div>
-            
-            <div className="product-extras">
+
+            <div className="product-extras-wrap">
                 EXTRA, EXTRA
             </div>
         </div>

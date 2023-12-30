@@ -3,17 +3,34 @@
 .product {
     display: flex;
     flex-direction: column;
+    background-color: $bg-colour;
 
     .image-particulars-wrap {
         display: flex;
-    
-    }
-    h1 {
-        order: 2;
+        justify-content: space-between;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $secondary;
+        
+        img {
+            max-width: 300px;
+            order: 1;
+        }
+
+        .product-particulars {
+            .add-to-basket-wrapper {
+                display: flex;
+
+                .add-to-basket {
+                    margin-left: 1rem;
+                }
+            }
+        }
     }
 
-    img {
-        max-width: 300px;
-        order: 1;
+    .product-extras-wrap {
+        padding: 1rem;
+        margin-bottom: 1rem;
     }
+    
 }
