@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import BasketContext from '../Basket/BasketContext';
 import { useParams } from 'react-router-dom';
 import './Product.scss';
 import QuantitySelector from '../QuantitySelector/QuantitySelector';
+import BasketItem from '../Basket/BasketItem';
 
 const Product = ({ data }) => {
-    const { basket, setBasket } = useContext(BasketContext);
+    // const { basket, setBasket } = useContext(BasketContext);
     const { id } = useParams();
     const product = data.find(item => item.ID === id);
+    const [quantity, setQuantity] = useState(1);
+
+    // const addToBasket = () => {
+    //     const newBasket = [...basket];
+    //     const basketItem = basket.find(item => item.ID === product.ID);
+
+    //     if (basketItem) {
+    //         basketItem.QUANTITY += quantity;
+    //     } else {
+    //         newBasket.push({ ...product, QUANTITY: quantity });
+    //     }
+
+    //     setBasket(newBasket);
+    // }
 
     return (
         <div className='product'>
@@ -25,8 +40,7 @@ const Product = ({ data }) => {
                     <p>Add a size selector</p>
                     <p>Category: {product.CATEGORY}</p>
                     <div className="add-to-basket-wrapper">
-                        <QuantitySelector onQuantityChange={(value) => console.log(value)} />
-                        <button className='add-to-basket'>Add to basket</button>
+                        <BasketItem product={product}/>                    
                     </div>
                 </div>
             </div>

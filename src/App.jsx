@@ -14,7 +14,11 @@ function App() {
     const {loading, error, data} = useFetch('http://localhost:3009/products');
     const [basket, setBasket] = useState([]);
 
-    if(data) console.log(data);
+    if (basket) {
+        console.log('Basket is: ', basket);
+    }
+
+    // if(data) console.log(data);
     
     if(loading) return <LoadingSpinner />
 

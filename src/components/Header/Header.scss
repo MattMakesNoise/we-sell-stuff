@@ -5,7 +5,6 @@ header {
     justify-content: center;
     align-items: center;
     background-color: $primary;
-    height: 100px;
     box-shadow: $shadow-bottom;
 
     .header-inner {
@@ -14,16 +13,56 @@ header {
         align-items: center;
         width: $max-width;
         padding: 0 1rem;
-        border: 1px solid red;
 
         .burger-wrapper {
-            border: 1px solid red;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--bg-colour) !important;
+			padding: 0;
+			border: 2px solid $secondary;
+			cursor: pointer;
+			// @include md {
+			// 	width: 25%;
+			// 	justify-content: normal;
+			// }
+			// @include lg {
+			// 	display: none;
+			// }
+
+            .burger-box {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 56px;
+				height: 63px;
+
+				.burger-inner,
+				.burger-inner::before,
+				.burger-inner::after {
+					display: block;
+					position: absolute;
+					height: 5px;
+					width: 30px;
+					background-color: $secondary;
+					border-radius: 3px;
+				}
+
+				.burger-inner::before {
+					content: '';
+					margin-top: -10px;
+				}
+
+				.burger-inner::after {
+					content: '';
+					margin-top: 10px;
+				}
+			}
         }
         
         .logo-wrapper {
-
             img {
-                max-height: 100px;
+                height: 150px;
                 width: auto;
             }
         }
