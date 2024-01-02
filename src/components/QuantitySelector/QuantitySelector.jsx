@@ -1,8 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./QuantitySelector.scss";
 
-const QuantitySelector = ({ initialQuantity = 1, maxQuantity = 100, onQuantityChange }) => {
+const QuantitySelector = ({ product, maxQuantity = 100, onQuantityChange }) => {
+    // Get basketItems from local storage and parse it
+    let basketItems = JSON.parse(localStorage.getItem('basketItems'));
+    
+    // Check if the current product is already in the basket and if so what the quantity is
+    let initialQuantity = 1;
+    if (basketItems) {
+        const basketItem = basketItems.find(item => item.ID === product.ID);
+        if (basketItem) {
+            initialQuantity = basketItem.quantity;
+        }
+    }
+
     const [quantity, setQuantity] = useState(initialQuantity);
+
+    useEffect(() => {
+        setQuantity(initialQuantity);
+    }, [initialQuantity]);
 
     const handleIncrement = () => {
         if (quantity < maxQuantity) {

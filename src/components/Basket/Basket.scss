@@ -1,0 +1,38 @@
+.basket {
+    .basket-title,
+    .basket-amounts,
+    .item-details,
+    .price-quantity-subtotal {
+        width: 50%;
+    }
+
+    .basket-header {
+        display: flex;
+
+
+        .basket-amounts{
+            display: flex;
+        }
+    }
+}
+
+.basket-item {
+    display: flex;
+    justify-content: space-between;
+
+    .item-details {
+        display: flex;
+    
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    }
+
+    .price-quantity-subtotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}

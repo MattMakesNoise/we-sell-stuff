@@ -46,7 +46,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<HomePage data={data} loading={loading} error={error} />} />
                             <Route path="/product/:id" element={<Product data={data} />} />
-                            <Route path="/basket" element={<Basket data={data} />} />
+                            <Route path="/basket" element={<Basket data={data}/>} />
                         </Routes>    
                     </main>
                     <Footer />

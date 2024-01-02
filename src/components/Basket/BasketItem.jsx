@@ -44,8 +44,8 @@ const BasketItem = ({ product, data }) => {
     }
 
     return (
-        <div>
-            <QuantitySelector initialQuantity={1} onQuantityChange={handleQuantityChange} />
+        <div className='add-to-basket-wrapper'>
+            <QuantitySelector initialQuantity={1} onQuantityChange={handleQuantityChange} product={product}/>
             <button className='add-to-basket' onClick={addToBasket}>Add to basket</button>
         </div>
     );

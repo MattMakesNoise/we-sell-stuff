@@ -22,9 +22,9 @@ const Product = ({ data }) => {
                     <p>Add some kind of colour selector that changes the image</p>
                     <p>Add a size selector</p>
                     <p>Category: {product.CATEGORY}</p>
-                    <div className="add-to-basket-wrapper">
+                    {/* <div className="add-to-basket-wrapper"> */}
                         <BasketItem product={product}/>                    
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
 
