@@ -1,10 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import BasketContext from './BasketContext';
 import QuantitySelector from '../QuantitySelector/QuantitySelector';
 
 const BasketItem = ({ product, data }) => {
     const { basket, setBasket } = useContext(BasketContext);
     const [ currentQuantity, setCurrentQuantity ] = useState(1);
+
+    useEffect(() => {
+        // Load basket from local storage
+        const loadedBasket = JSON.parse(localStorage.getItem('basketItems'));
+        if (loadedBasket) {
+            setBasket(loadedBasket);
+        }
+    }, []);
     
     const handleQuantityChange = (newQuantity) => {
         setCurrentQuantity(newQuantity);
@@ -30,6 +38,9 @@ const BasketItem = ({ product, data }) => {
             existingProduct.quantity = currentQuantity;
             setBasket([...basket]);
         }
+
+        // Save updated basket to local storage
+        localStorage.setItem('basketItems', JSON.stringify(basket));
     }
 
     return (

@@ -14,11 +14,24 @@ function App() {
     const {loading, error, data} = useFetch('http://localhost:3009/products');
     const [basket, setBasket] = useState([]);
 
-    if (basket) {
-        console.log('Basket is: ', basket);
-    }
+    // Stores fetched data in local storage
+    useEffect(() => {
+        if (data) {
+            localStorage.setItem('products', JSON.stringify(data));
+        }
+    }, [data]);
 
-    // if(data) console.log(data);
+    const products = JSON.parse(localStorage.getItem('products'));
+
+    // Stores basket in local storage
+    useEffect(() => {
+        if (basket) {
+            localStorage.setItem('basket', JSON.stringify(basket));
+        }
+    }, [basket]);
+
+    let basketItems = JSON.parse(localStorage.getItem('basket'));
+    console.log("This is what's in the basket!: ", basketItems);
     
     if(loading) return <LoadingSpinner />
 
